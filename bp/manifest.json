@@ -1,0 +1,40 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Guns §7by AdamRaichu",
+    "description": "",
+    "uuid": "a8f93be9-c0d6-4327-a0c6-db43c38aed6e",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      19,
+      20
+    ]
+  },
+  "modules": [
+    {
+      "description": "behavior module",
+      "type": "data",
+      "uuid": "c1a4fa0e-05e4-4ff9-8410-b93f92278728",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "bcb14edf-7a00-4eb2-be68-13e24d6a6119",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

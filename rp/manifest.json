@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Custom Guns: §8Textures",
+    "description": "Contains the required textures for Guns",
+    "uuid": "bcb14edf-7a00-4eb2-be68-13e24d6a6119",
+    "version": [
+      2,
+      0,
+      5
+    ],
+    "min_engine_version": [
+      1,
+      19,
+      20
+    ]
+  },
+  "modules": [
+    {
+      "description": "textures",
+      "type": "resources",
+      "uuid": "eaecdb08-5e9f-4492-a30e-0e5eda1986d8",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}
