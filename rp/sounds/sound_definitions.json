@@ -1,0 +1,11 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "guns.sniper": {
+      "category": "player",
+      "sounds": [
+        "sounds/sniper_sound"
+      ]
+    }
+  }
+}

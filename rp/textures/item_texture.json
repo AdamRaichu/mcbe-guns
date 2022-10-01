@@ -1,8 +1,7 @@
 {
-  "resource_pack_name": "Guns",
   "texture_data": {
     "sniper": {
-      "textures": "textures/items/sniper.png"
+      "textures": "textures/items/sniper"
     }
   }
 }
