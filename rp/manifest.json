@@ -5,9 +5,9 @@
     "description": "Contains the required textures for Guns",
     "uuid": "bcb14edf-7a00-4eb2-be68-13e24d6a6119",
     "version": [
-      2,
+      1,
       0,
-      5
+      0
     ],
     "min_engine_version": [
       1,
