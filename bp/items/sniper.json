@@ -14,7 +14,7 @@
       },
       "minecraft:max_stack_size": 1,
       "minecraft:cooldown": {
-        "category": "use",
+        "category": "guns",
         "duration": 5
       },
       "minecraft:on_use": {
