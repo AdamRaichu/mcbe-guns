@@ -47,6 +47,14 @@
     {
       "module_name": "mojang-gametest",
       "version": "1.0.0-beta"
+    },
+    {
+      "uuid": "bcb14edf-7a00-4eb2-be68-13e24d6a6119",
+      "version": [
+        1,
+        0,
+        0
+      ]
     }
   ]
 }

@@ -6,14 +6,14 @@
     },
     "components": {
       "minecraft:icon": {
-        "texture": "blaze_rod"
+        "texture": "sniper"
       },
       "minecraft:hand_equipped": true,
       "minecraft:display_name": {
         "value": "Sniper Rifle"
       },
       "minecraft:cooldown": {
-        "category": "gun",
+        "category": "attack",
         "duration": 5
       },
       "minecraft:on_use": {
