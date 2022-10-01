@@ -12,6 +12,7 @@
       "minecraft:display_name": {
         "value": "Sniper Rifle"
       },
+      "minecraft:max_stack_size": 1,
       "minecraft:cooldown": {
         "category": "use",
         "duration": 5
