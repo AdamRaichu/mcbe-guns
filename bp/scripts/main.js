@@ -5,7 +5,7 @@ var overworld = world.getDimension("overworld");
 
 world.events.beforeItemUse.subscribe(function (e) {
   if (e.item.id === "adamraichu:sniper") {
-    overworld.runCommand(`playsound guns.sniper.fire ${e.source.name} ~ ~ ~ 10`);
+    overworld.runCommand(`execute @a[name=${e.source.name}] ~ ~ ~ playsound guns.sniper.fire @s ~ ~ ~ 10`);
     var ent = e.source.getEntitiesFromViewVector();
     if (ent.length > 0) {
       var h = ent[0].getComponent("minecraft:health");
