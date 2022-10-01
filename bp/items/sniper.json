@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16.100",
+  "format_version": "1.16.1",
   "minecraft:item": {
     "description": {
       "identifier": "adamraichu:sniper"
@@ -15,7 +15,8 @@
       "minecraft:cooldown": {
         "category": "gun",
         "duration": 5
-      }
+      },
+      "minecraft:on_use": {}
     }
   }
 }
