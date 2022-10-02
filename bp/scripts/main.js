@@ -8,7 +8,7 @@ world.events.beforeItemUse.subscribe(function (e) {
     var ent = e.source.getEntitiesFromViewVector();
     if (ent.length > 0) {
       var h = ent[0].getComponent("minecraft:health");
-      h.setCurrent(h.current - 20);
+      h.setCurrent(h.current - 15);
     }
   } else {
     e.source.runCommand(`title @s actionbar Still reloading...`)
