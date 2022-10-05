@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Generate Assets
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      versionString:
+       type: string
+       required: true
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      # Runs a set of commands using the runners shell
+      - name: use adm-zip
+        run: |
+          npm install adm-zip
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            var AdmZip = require("adm-zip");
+            var bp = new AdmZip();
+            bp.addLocalFolder("./bp");
+            bp.writeZip("./assets/${{ inputs.versionString }}/guns_bp.mcpack");
+            var rp = new AdmZip();
+            rp.addLocalFolder("./rp");
+            rp.writeZip("./assets/${{ inputs.versionString }}/guns_rp.mcpack");
+            var addon = new AdmZip();
+            addon.addLocalFolder("./assets/${{ inputs.versionString }}");
+            addon.writeZip("./assets/${{ inputs.versionString }}/guns.mcaddon");
+      - name: commit changes
+        run: |
+          git pull
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generate `.mcpack` and `.mcaddon` files in `/assets`"
+          git push
