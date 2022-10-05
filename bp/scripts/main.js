@@ -16,8 +16,11 @@ world.events.tick.subscribe(function (e) {
       return
     }
     var inv = joinedPlayers[c].getComponent("minecraft:inventory").container
-    if (inv.getItem(joinedPlayers[c].selectedSlot).id === "guns:sniper" && joinedPlayers[c].isSneaking) {
-      joinedPlayers[c].addEffect(MinecraftEffectTypes.slowness, 5, 255, false)
+    var selected = inv.getItem(joinedPlayers[c].selectedSlot)
+    if (typeof selected !== "undefined") {
+      if (selected.id === "guns:sniper" && joinedPlayers[c].isSneaking) {
+        joinedPlayers[c].addEffect(MinecraftEffectTypes.slowness, 5, 255, false)
+      }
     }
   }
 });
