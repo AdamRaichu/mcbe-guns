@@ -9,6 +9,12 @@ world.events.playerJoin.subscribe(function (e) {
   joinedPlayers.push(e.player);
 });
 
+world.events.playerLeave.subscribe(function (e) {
+  joinedPlayers = joinedPlayers.filter(function (element) {
+    return element !== undefined;
+  });
+})
+
 world.events.tick.subscribe(function (e) {
   for (var c = 0; c < joinedPlayers.length; c++) {
     if (typeof joinedPlayers[c] === "undefined") {
@@ -33,6 +39,7 @@ world.events.beforeItemUse.subscribe(function (e) {
       if (ent.length > 0) {
         var h = ent[0].getComponent("minecraft:health");
         var armor = 1;
+        ent[0].runCommand("summon snowball ~ ~.2 ~")
         h.setCurrent(h.current - (15 * armor));
       }
     } else {
