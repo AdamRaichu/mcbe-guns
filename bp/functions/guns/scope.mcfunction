@@ -1,1 +1,0 @@
-effect @a[tag=_guns__001] slowness 1 255 true
