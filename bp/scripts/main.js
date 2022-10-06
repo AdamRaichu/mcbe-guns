@@ -25,10 +25,12 @@ world.events.beforeItemUse.subscribe(function (e) {
       e.source.runCommand(`playsound guns.sniper.fire @a[r=160] ~ ~ ~ 10`);
       var ent = e.source.getEntitiesFromViewVector();
       if (ent.length > 0) {
-        var h = ent[0].getComponent("minecraft:health");
-        var armor = 1;
-        ent[0].runCommand("summon snowball ~ ~.2 ~");
-        h.setCurrent(h.current - (15 * armor));
+        if (!ent[0].hasTag("_guns__001")) {
+          var h = ent[0].getComponent("minecraft:health");
+          var armor = 1;
+          ent[0].runCommand("summon snowball ~ ~.2 ~");
+          h.setCurrent(h.current - (15 * armor));
+        }
       }
     } else {
       e.source.runCommand(`title @s actionbar Still reloading...`);
