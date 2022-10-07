@@ -56,5 +56,17 @@
         1
       ]
     }
+  ],
+  "subpacks": [
+    {
+      "folder_name": "main",
+      "name": "Stable Version",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "beta",
+      "name": "BETA Version | MAY BREAK",
+      "memory_tier": 0
+    }
   ]
 }
