@@ -1,8 +1,11 @@
 {
-  "guns.sniper.fire": {
-    "category": "neutral",
-    "sounds": [
-      "sounds/sniper_sound"
-    ]
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "guns.sniper.fire": {
+      "category": "neutral",
+      "sounds": [
+        "sounds/sniper_sound"
+      ]
+    }
   }
 }
