@@ -27,9 +27,11 @@ world.events.beforeItemUse.subscribe(function (e) {
       if (ent.length > 0) {
         if (!ent[0].hasTag("_guns__001")) {
           var h = ent[0].getComponent("minecraft:health");
-          var armor = 1;
-          ent[0].runCommand("summon snowball ~ ~.2 ~");
-          h.setCurrent(h.current - (15 * armor));
+          if (typeof h !== "undefined") {
+            var armor = 1;
+            ent[0].runCommand("summon snowball ~ ~.2 ~");
+            h.setCurrent(h.current - (15 * armor));
+          }
         }
       }
     } else {
