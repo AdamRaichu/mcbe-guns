@@ -30,7 +30,7 @@ world.events.beforeItemUse.subscribe(function (e) {
           if (typeof h !== "undefined") {
             var armor = 1;
             ent[0].runCommand("summon snowball ~ ~.2 ~");
-            h.setCurrent(h.current - (15 * armor));
+            h.setCurrent(h.current - 15 * armor);
           }
         }
       }
