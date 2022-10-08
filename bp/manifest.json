@@ -1,8 +1,8 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Sniper Rifle behavior pack",
-    "description": "Requires gametest",
+    "name": "Guns behavior pack",
+    "description": "Requires §7Holiday Creator Features §rand §7GameTest Framework",
     "uuid": "d2f3dc62-a359-482f-b966-d88578b2ecbf",
     "version": [
       2,
