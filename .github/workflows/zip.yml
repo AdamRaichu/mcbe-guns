@@ -47,5 +47,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "generate \`.mcpack\` and \`.mcaddon\` files in \`/assets\`"
+          git commit -m "generate \`${{inputs.versionString}}\` assets"
           git push
