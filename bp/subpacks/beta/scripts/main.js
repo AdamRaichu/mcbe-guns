@@ -4,21 +4,6 @@ import {
   EntityRaycastOptions,
 } from "mojang-minecraft";
 
-world.events.tick.subscribe(function (e) {
-  // For scoping
-  var players = world.getPlayers();
-  for (var p of players) {
-    var inv = p.getComponent("minecraft:inventory").container;
-    var selected = inv.getItem(p.selectedSlot);
-    if (typeof selected !== "undefined") {
-      // this is in case player is holding nothing
-      if (selected.id === "guns:sniper" && p.isSneaking) {
-        p.addEffect(MinecraftEffectTypes.slowness, 5, 255, false);
-      }
-    }
-  }
-});
-
 function gunFire(event, maxD, damage, soundID) {
   if (event.source.getItemCooldown("guns") === 0) {
     event.source.runCommand(`playsound ${soundID} @a[r=160] ~ ~ ~ 10`);
@@ -39,6 +24,24 @@ function gunFire(event, maxD, damage, soundID) {
     event.source.runCommand(`title @s actionbar Still reloading...`);
   }
 }
+
+function scopeHandler() {
+  var players = world.getPlayers();
+  for (var p of players) {
+    var inv = p.getComponent("minecraft:inventory").container;
+    var selected = inv.getItem(p.selectedSlot);
+    if (typeof selected !== "undefined") {
+      // this is in case player is holding nothing
+      if (selected.id === "guns:sniper" && p.isSneaking) {
+        p.addEffect(MinecraftEffectTypes.slowness, 5, 255, false);
+      }
+    }
+  }
+}
+
+world.events.tick.subscribe(function (e) {
+  scopeHandler();
+});
 
 world.events.beforeItemUse.subscribe(function (e) {
   // For rifle firing
