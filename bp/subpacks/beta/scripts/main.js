@@ -4,6 +4,10 @@ import {
   EntityRaycastOptions,
 } from "mojang-minecraft";
 
+function getArmor(entity) {
+  return 1;
+}
+
 function gunFire(event, maxD, damage, soundID) {
   if (event.source.getItemCooldown("guns") === 0) {
     event.source.runCommand(`playsound ${soundID} @a[r=160] ~ ~ ~ 10`);
@@ -14,7 +18,7 @@ function gunFire(event, maxD, damage, soundID) {
       if (!ent[0].hasTag("_guns__001")) {
         var h = ent[0].getComponent("minecraft:health");
         if (typeof h !== "undefined") {
-          var armor = 1;
+          var armor = getArmor(ent[0]);
           ent[0].runCommand("summon snowball ~ ~.2 ~");
           h.setCurrent(h.current - damage * armor);
         }
