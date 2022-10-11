@@ -2,6 +2,9 @@
   "texture_data": {
     "sniper": {
       "textures": "textures/items/sniper"
+    },
+    "machine": {
+      "textures": "textures/items/machine"
     }
   }
 }
