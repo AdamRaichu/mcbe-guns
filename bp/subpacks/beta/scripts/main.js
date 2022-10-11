@@ -22,43 +22,32 @@ world.events.tick.subscribe(function (e) {
   }
 });
 
+function gunFire(event, maxD, damage) {
+  if (event.source.getItemCooldown("guns") === 0) {
+    event.source.runCommand(`playsound guns.sniper.fire @a[r=160] ~ ~ ~ 10`);
+    var opts = new EntityRaycastOptions();
+    opts.maxDistance = maxD;
+    var ent = event.source.getEntitiesFromViewVector(opts);
+    if (ent.length > 0) {
+      if (!ent[0].hasTag("_guns__001")) {
+        var h = ent[0].getComponent("minecraft:health");
+        if (typeof h !== "undefined") {
+          var armor = 1;
+          ent[0].runCommand("summon snowball ~ ~.2 ~");
+          h.setCurrent(h.current - damage * armor);
+        }
+      }
+    }
+  } else {
+    event.source.runCommand(`title @s actionbar Still reloading...`);
+  }
+}
+
 world.events.beforeItemUse.subscribe(function (e) {
   // For rifle firing
   if (e.item.id === "guns:sniper") {
-    if (e.source.getItemCooldown("guns") === 0) {
-      e.source.runCommand(`playsound guns.sniper.fire @a[r=160] ~ ~ ~ 10`);
-      var ent = e.source.getEntitiesFromViewVector();
-      if (ent.length > 0) {
-        if (!ent[0].hasTag("_guns__001")) {
-          var h = ent[0].getComponent("minecraft:health");
-          if (typeof h !== "undefined") {
-            var armor = 1;
-            ent[0].runCommand("summon snowball ~ ~.2 ~");
-            h.setCurrent(h.current - 15 * armor);
-          }
-        }
-      }
-    } else {
-      e.source.runCommand(`title @s actionbar Still reloading...`);
-    }
+    gunFire(e, 150, 15);
   } else if (e.item.id === "guns:machine") {
-    if (e.source.getItemCooldown("guns") === 0) {
-      e.source.runCommand("playsound guns.sniper.fire @a[r=160] ~ ~ ~ 10");
-      var opts = new EntityRaycastOptions();
-      opts.maxDistance = 20;
-      var ent = e.source.getEntitiesFromViewVector(opts);
-      if (ent.length > 0) {
-        if (!ent[0].hasTag("_guns__001")) {
-          var h = ent[0].getComponent("minecraft:health");
-          if (typeof h !== "undefined") {
-            var armor = 1;
-            ent[0].runCommand("summon snowball ~ ~.2 ~");
-            h.setCurrent(h.current - 2 * armor);
-          }
-        }
-      }
-    } else {
-      e.source.runCommand(`title @s actionbar Still reloading...`);
-    }
+    gunFire(e, 20, 2);
   }
 });
