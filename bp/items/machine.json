@@ -11,7 +11,7 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:display_name": {
-        "value": "Machine Gun §o§8[BETA]§r"
+        "value": "Machine Gun"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:cooldown": {
