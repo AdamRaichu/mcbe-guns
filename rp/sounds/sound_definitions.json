@@ -6,6 +6,12 @@
       "sounds": [
         "sounds/sniper_sound"
       ]
+    },
+    "guns.machine.fire": {
+      "category": "neutral",
+      "sounds": [
+        "sounds/machine_sounds"
+      ]
     }
   }
 }
