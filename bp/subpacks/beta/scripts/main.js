@@ -3,9 +3,6 @@ import {
   MinecraftEffectTypes,
   EntityRaycastOptions,
 } from "mojang-minecraft";
-import { Test as test } from "mojang-gametest";
-
-var overworld = world.getDimension("overworld");
 
 world.events.tick.subscribe(function (e) {
   // For scoping
