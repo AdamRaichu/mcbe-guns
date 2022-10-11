@@ -1,10 +1,35 @@
-import { world, MinecraftEffectTypes } from "mojang-minecraft";
-import { Test as test } from "mojang-gametest";
+import {
+  world,
+  MinecraftEffectTypes,
+  EntityRaycastOptions,
+} from "mojang-minecraft";
 
-var overworld = world.getDimension("overworld");
+function getArmor(entity) {
+  return 1;
+}
 
-world.events.tick.subscribe(function (e) {
-  // For scoping
+function gunFire(event, maxD, damage, soundID) {
+  if (event.source.getItemCooldown("guns") === 0) {
+    event.source.runCommand(`playsound ${soundID} @a[r=160] ~ ~ ~ 10`);
+    var opts = new EntityRaycastOptions();
+    opts.maxDistance = maxD;
+    var ent = event.source.getEntitiesFromViewVector(opts);
+    if (ent.length > 0) {
+      if (!ent[0].hasTag("_guns__001")) {
+        var h = ent[0].getComponent("minecraft:health");
+        if (typeof h !== "undefined") {
+          var armor = getArmor(ent[0]);
+          ent[0].runCommand("summon snowball ~ ~.2 ~");
+          h.setCurrent(h.current - damage * armor);
+        }
+      }
+    }
+  } else {
+    event.source.runCommand(`title @s actionbar Still reloading...`);
+  }
+}
+
+function scopeHandler() {
   var players = world.getPlayers();
   for (var p of players) {
     var inv = p.getComponent("minecraft:inventory").container;
@@ -16,26 +41,17 @@ world.events.tick.subscribe(function (e) {
       }
     }
   }
+}
+
+world.events.tick.subscribe(function (e) {
+  scopeHandler();
 });
 
 world.events.beforeItemUse.subscribe(function (e) {
   // For rifle firing
   if (e.item.id === "guns:sniper") {
-    if (e.source.getItemCooldown("guns") === 0) {
-      e.source.runCommand(`playsound guns.sniper.fire @a[r=160] ~ ~ ~ 10`);
-      var ent = e.source.getEntitiesFromViewVector();
-      if (ent.length > 0) {
-        if (!ent[0].hasTag("_guns__001")) {
-          var h = ent[0].getComponent("minecraft:health");
-          if (typeof h !== "undefined") {
-            var armor = 1;
-            ent[0].runCommand("summon snowball ~ ~.2 ~");
-            h.setCurrent(h.current - 15 * armor);
-          }
-        }
-      }
-    } else {
-      e.source.runCommand(`title @s actionbar Still reloading...`);
-    }
+    gunFire(e, 150, 15, "guns.sniper.fire");
+  } else if (e.item.id === "guns:machine") {
+    gunFire(e, 20, 2, "guns.machine.fire");
   }
 });
