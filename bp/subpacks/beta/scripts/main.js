@@ -22,9 +22,9 @@ world.events.tick.subscribe(function (e) {
   }
 });
 
-function gunFire(event, maxD, damage) {
+function gunFire(event, maxD, damage, soundID) {
   if (event.source.getItemCooldown("guns") === 0) {
-    event.source.runCommand(`playsound guns.sniper.fire @a[r=160] ~ ~ ~ 10`);
+    event.source.runCommand(`playsound ${soundID} @a[r=160] ~ ~ ~ 10`);
     var opts = new EntityRaycastOptions();
     opts.maxDistance = maxD;
     var ent = event.source.getEntitiesFromViewVector(opts);
@@ -46,8 +46,8 @@ function gunFire(event, maxD, damage) {
 world.events.beforeItemUse.subscribe(function (e) {
   // For rifle firing
   if (e.item.id === "guns:sniper") {
-    gunFire(e, 150, 15);
+    gunFire(e, 150, 15, "guns.sniper.fire");
   } else if (e.item.id === "guns:machine") {
-    gunFire(e, 20, 2);
+    gunFire(e, 20, 2, "guns.machine.fire");
   }
 });
