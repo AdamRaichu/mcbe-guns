@@ -10,7 +10,7 @@
     "guns.machine.fire": {
       "category": "neutral",
       "sounds": [
-        "sounds/machine_sounds"
+        "sounds/machine_sound"
       ]
     }
   }
