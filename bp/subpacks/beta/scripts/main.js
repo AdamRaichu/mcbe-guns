@@ -5,7 +5,53 @@ import {
 } from "mojang-minecraft";
 
 function getArmor(entity) {
-  return 1;
+  var calc = 1;
+  if (entity.hasTag("_guns__002")) {
+    calc -= 0.04;
+  }
+  if (entity.hasTag("_guns__003")) {
+    calc -= 0.08;
+  }
+  if (entity.hasTag("_guns__004")) {
+    calc -= 0.12;
+  }
+  if (entity.hasTag("_guns__005")) {
+    calc -= 0.12;
+  }
+  if (entity.hasTag("_guns__006")) {
+    calc -= 0.2;
+  }
+  if (entity.hasTag("_guns__007")) {
+    calc -= 0.24;
+  }
+  if (entity.hasTag("_guns__008")) {
+    calc -= 0.32;
+  }
+  if (entity.hasTag("_guns__009")) {
+    calc -= 0.08;
+  }
+  if (entity.hasTag("_guns__010")) {
+    calc -= 0.12;
+  }
+  if (entity.hasTag("_guns__011")) {
+    calc -= 0.16;
+  }
+  if (entity.hasTag("_guns__012")) {
+    calc -= 0.2;
+  }
+  if (entity.hasTag("_guns__013")) {
+    calc -= 0.24;
+  }
+  if (entity.hasTag("_guns__014")) {
+    calc -= 0.04;
+  }
+  if (entity.hasTag("_guns__015")) {
+    calc -= 0.08;
+  }
+  if (entity.hasTag("_guns__016")) {
+    calc -= 0.12;
+  }
+  return calc;
 }
 
 function gunFire(event, maxD, damage, soundID) {
@@ -20,7 +66,7 @@ function gunFire(event, maxD, damage, soundID) {
         if (typeof h !== "undefined") {
           var armor = getArmor(ent[0]);
           ent[0].runCommand("summon snowball ~ ~.2 ~");
-          h.setCurrent(h.current - damage * armor);
+          h.setCurrent(Math.ceil(h.current - damage * armor));
         }
       }
     }
@@ -50,7 +96,7 @@ world.events.tick.subscribe(function (e) {
 world.events.beforeItemUse.subscribe(function (e) {
   // For rifle firing
   if (e.item.id === "guns:sniper") {
-    gunFire(e, 150, 15, "guns.sniper.fire");
+    gunFire(e, 150, 20, "guns.sniper.fire");
   } else if (e.item.id === "guns:machine") {
     gunFire(e, 20, 2, "guns.machine.fire");
   }

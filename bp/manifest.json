@@ -2,12 +2,12 @@
   "format_version": 2,
   "header": {
     "name": "Guns behavior pack",
-    "description": "Requires §7Holiday Creator Features §rand §7GameTest Framework",
+    "description": "Requires §7Holiday Creator Features §rand §7GameTest Framework\nIf you are using the beta version, please report any problems you find @\ngithub.com/AdamRaichu/mcbe-guns",
     "uuid": "d2f3dc62-a359-482f-b966-d88578b2ecbf",
     "version": [
       2,
-      2,
-      1
+      3,
+      0
     ],
     "min_engine_version": [
       1,
@@ -52,8 +52,8 @@
       "uuid": "bcb14edf-7a00-4eb2-be68-13e24d6a6119",
       "version": [
         2,
-        2,
-        1
+        3,
+        0
       ]
     }
   ],
