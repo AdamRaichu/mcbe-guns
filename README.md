@@ -15,11 +15,12 @@ Below is a chart showing what each tag does.
 
 | Tag | Usage |
 | :---: | :---: |
-| `_guns__001` | Makes a player immune to all guns. |
-| `_guns__002` | Player is wearing leather helmet. |
-| `_guns__003` | Player is wearing gold, chainmail, iron, or turtle helmet. |
-| `_guns__004` | Player is wearing diamond or netherite helmet. |
-| `_guns__005` | Player is wearing leather chestplate. |
+| `_guns__001` | Makes an entity immune to all guns. |
+| | *(The following tags are used for armor calculation to mark what the entities are wearing)* |
+| `_guns__002` | Entity is wearing leather helmet. |
+| `_guns__003` | Entity is wearing gold, chainmail, iron, or turtle helmet. |
+| `_guns__004` | Entity is wearing diamond or netherite helmet. |
+| `_guns__005` | Entity is wearing leather chestplate. |
 | `TBC` | `WIP` |
 
 ## See also
