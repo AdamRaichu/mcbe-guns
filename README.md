@@ -16,7 +16,7 @@ Below is a chart showing what each tag does.
 | Tag | Usage |
 | :---: | :---: |
 | `_guns__001` | Makes an entity immune to all guns. Needs to be added manually by admins. |
-| | *(The following tags are added automatically to all entities. They are used for armor calculation to mark what the entities are wearing)* |
+| | *(The following tags are added automatically to all entities who fit certain criteria. They are used for armor calculation to mark what the entities are wearing)* |
 | `_guns__002` | Entity is wearing leather helmet. |
 | `_guns__003` | Entity is wearing gold, chainmail, iron, or turtle helmet. |
 | `_guns__004` | Entity is wearing diamond or netherite helmet. |
