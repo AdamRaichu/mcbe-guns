@@ -2,7 +2,23 @@ import {
   world,
   MinecraftEffectTypes,
   EntityRaycastOptions,
+  ItemStack,
+  Items,
 } from "mojang-minecraft";
+
+function checkForAmmo(inventory, itemID) {
+  for (var c = 0; c < inventory.size; c++) {
+    var stack = inventory.getItem(c);
+    if (typeof stack !== "undefined") {
+      if (stack.id === itemID) {
+        var n = new ItemStack(Items.get(itemID), stack.amount - 1);
+        n.nameTag = stack.nameTag;
+        inventory.setItem(c, n);
+        return true;
+      }
+    }
+  }
+}
 
 export function getArmor(entity) {
   var calc = 1;
@@ -54,19 +70,26 @@ export function getArmor(entity) {
   return calc;
 }
 
-export function gunFire(event, maxD, damage, soundID) {
+export function gunFire(event, maxD, damage, soundID, ammo) {
   if (event.source.getItemCooldown("guns") === 0) {
-    event.source.runCommand(`playsound ${soundID} @a[r=160] ~ ~ ~ 10`);
-    var opts = new EntityRaycastOptions();
-    opts.maxDistance = maxD;
-    var ent = event.source.getEntitiesFromViewVector(opts);
-    if (ent.length > 0) {
-      if (!ent[0].hasTag("_guns__001")) {
-        var h = ent[0].getComponent("minecraft:health");
-        if (typeof h !== "undefined") {
-          var armor = getArmor(ent[0]);
-          ent[0].runCommand("summon snowball ~ ~.2 ~");
-          h.setCurrent(Math.ceil(h.current - damage * armor));
+    if (
+      checkForAmmo(
+        event.source.getComponent("minecraft:inventory").container,
+        ammo
+      )
+    ) {
+      event.source.runCommand(`playsound ${soundID} @a[r=160] ~ ~ ~ 10`);
+      var opts = new EntityRaycastOptions();
+      opts.maxDistance = maxD;
+      var ent = event.source.getEntitiesFromViewVector(opts);
+      if (ent.length > 0) {
+        if (!ent[0].hasTag("_guns__001")) {
+          var h = ent[0].getComponent("minecraft:health");
+          if (typeof h !== "undefined") {
+            var armor = getArmor(ent[0]);
+            ent[0].runCommand("summon snowball ~ ~.2 ~");
+            h.setCurrent(Math.ceil(h.current - damage * armor));
+          }
         }
       }
     }
