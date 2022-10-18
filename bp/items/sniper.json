@@ -2,7 +2,8 @@
   "format_version": "1.16.100",
   "minecraft:item": {
     "description": {
-      "identifier": "guns:sniper"
+      "identifier": "guns:sniper",
+      "category": "Equipment"
     },
     "components": {
       "minecraft:icon": {

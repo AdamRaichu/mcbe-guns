@@ -8,8 +8,8 @@ world.events.tick.subscribe(function (e) {
 world.events.beforeItemUse.subscribe(function (e) {
   // For rifle firing
   if (e.item.id === "guns:sniper") {
-    gunFire(e, 150, 20, "guns.sniper.fire", "minecraft:dirt");
+    gunFire(e, 150, 20, "guns.sniper.fire", "guns:ammo_large");
   } else if (e.item.id === "guns:machine") {
-    gunFire(e, 20, 2, "guns.machine.fire", "minecraft:dirt");
+    gunFire(e, 20, 2, "guns.machine.fire", "guns:ammo_small");
   }
 });

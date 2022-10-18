@@ -5,6 +5,15 @@
     },
     "machine": {
       "textures": "textures/items/machine"
+    },
+    "ammo_small": {
+      "textures": "textures/items/low_caliber_ammo"
+    },
+    "ammo_med": {
+      "textures": "textures/items/medium_caliber_ammo"
+    },
+    "ammo_large": {
+      "textures": "textures/items/high_caliber_ammo"
     }
   }
 }
