@@ -13,9 +13,11 @@ The addon adds several tags to players as it executes its logic.
 Some are to be manually added by admins.
 Below is a chart showing what each tag does.
 
-| Tag | Usage |
-| :---: | :---: |
-| `_guns__001` | Makes an entity immune to all guns. Needs to be added manually by admins. |
+Tags marked with ⚙️ need to be added by admins using `/tag <player> add <tag>`.
+
+| Tag | Usage | Notes |
+| :---: | :---: | :---: |
+| `_guns__001` | Makes an entity immune to all guns. | ⚙️ |
 | | *(The following tags are added automatically to all entities who fit certain criteria. They are used for armor calculation to mark what the entities are wearing)* |
 | `_guns__002` | Entity is wearing leather helmet. |
 | `_guns__003` | Entity is wearing gold, chainmail, iron, or turtle helmet. |
