@@ -27,7 +27,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: use adm-zip
         run: |
-          npm install adm-zip
+          npm install adm-zip --save-dev
       - uses: actions/github-script@v6
         with:
           script: |
