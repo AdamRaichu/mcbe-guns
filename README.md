@@ -37,7 +37,8 @@ Tags marked with ⚙️ need to be added by admins using `/tag <player> add <tag
 
 ## See also
 
-You may also enjoy [Custom Armor for Minecraft Bedrock Edition][mcbe-custom-armor]
+You may also enjoy [Custom Armor for Minecraft Bedrock Edition][mcbe-custom-armor] or [MCBE Rascal][mcbe-rascal]
 
 [releases]: https://github.com/AdamRaichu/mcbe-guns/releases
 [mcbe-custom-armor]: https://github.com/AdamRaichu/mcbe-custom-armor
+[mcbe-rascal]: https://github.com/AdamRaichu/mcbe-rascal
